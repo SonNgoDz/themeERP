@@ -3,7 +3,7 @@
 	--btn-primary: #714B67;
 	--btn-secondary: #017E8480;
 	--secondary: #017E84;
-	--navbar-bg: #714B67;
+	--navbar-bg: #4b5571;
 	--text-btn-color: white;
 	--table-border-color: #714b6740;
 	--btn-default-hover-bg: white;
@@ -58,16 +58,20 @@
 
 /* NAVBAR DESIGNE */
 
+.navbar {
+    background-color: white !important;
+    border-bottom: 1px solid var(--table-border-color) !important;
+}
+
 .navbar .navbar-expand span, 
 .navbar .navbar-expand li a,
 #navbar-breadcrumbs a,
 .navbar .nav-item button.nav-link{ 
-	color: var(--btn-default-hover-bg) !important;
-
+    color: var(--navbar-bg) !important;
 }
 
 #navbar-breadcrumbs li.disabled a {
-  color: var(--white-overlay-400) !important;
+    color: var(--gray-500) !important;
 }
 
 .nav-tabs{ 
