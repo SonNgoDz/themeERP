@@ -59,7 +59,7 @@
 /* NAVBAR DESIGNE */
 
 .navbar {
-    background-color: white !important;
+    background-color: #484848 !important;
     border-bottom: 1px solid var(--table-border-color) !important;
 }
 
@@ -71,7 +71,7 @@
 }
 
 #navbar-breadcrumbs li.disabled a {
-    color: var(--gray-500) !important;
+    color: var(--white) !important;
 }
 
 .nav-tabs{ 
