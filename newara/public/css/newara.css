@@ -84,10 +84,19 @@
 
 /* PAGE DESIGN */
 
-.container {
+.page-content {
+    width: 100% !important;
     max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
+.page-content .layout-main-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 15px !important;
+}
 
 body, .page-container { 
 	background-color: var(--bg-color) !important;
@@ -101,10 +110,6 @@ body, .page-container {
 	@extend .icon;
 	fill :  #017E8480 !important; 
 	stroke:  #017E8480 !important;
-}
-
-.page-content .layout-main-section{
-        background-color: white;
 }
 
 .datatable .dt-cell {
