@@ -82,6 +82,46 @@
 	color: var(--neutral-black) !important;
 }
 
+.sidebar-toggle-btn {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+.sidebar-toggle-btn .sidebar-toggle-placeholder {
+    display: none !important;
+}
+
+.sidebar-toggle-btn .sidebar-toggle-icon {
+    display: block !important;
+}
+
+.sidebar-collapsed .sidebar-toggle-btn .sidebar-toggle-placeholder {
+    display: block !important;
+}
+
+.sidebar-collapsed .sidebar-toggle-btn .sidebar-toggle-icon {
+    display: none !important;
+}
+
+.sidebar-collapsed .desk-sidebar-item .sidebar-item-label,
+.sidebar-collapsed .standard-sidebar-label .section-title {
+    display: none !important;
+}
+
+.sidebar-collapsed .desk-sidebar-item {
+    padding: 8px 12px !important;
+    justify-content: center !important;
+}
+
+.sidebar-collapsed .desk-sidebar-item .sidebar-item-icon {
+    margin-right: 0 !important;
+}
+
+.sidebar-collapsed .sidebar-item-control {
+    display: none !important;
+}
+
 /* PAGE DESIGN */
 
 .container,
