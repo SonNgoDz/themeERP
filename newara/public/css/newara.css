@@ -84,13 +84,10 @@
 
 /* PAGE DESIGN */
 
-@media (min-width: 1200px) {
-    .container-xl, .container-lg, .container-md, .container-sm, .container {
-        max-width: 100%;
-        padding-left: 15px;
-        padding-right: 15px;
-    }
+.container {
+    max-width: 100% !important;
 }
+
 
 body, .page-container { 
 	background-color: var(--bg-color) !important;
