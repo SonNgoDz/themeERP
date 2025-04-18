@@ -603,7 +603,8 @@ p {
     color: #425b76 !important;
     display: flex !important;
     align-items: center !important;
-    gap: 6px !important;
+    gap: 8px !important;
+    line-height: 1 !important;
 }
 
 .desk-sidebar-item:hover {
@@ -623,6 +624,10 @@ p {
     min-width: 14px !important;
     min-height: 14px !important;
     color: #425b76 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
 }
 
 .sidebar-item-label {
@@ -630,6 +635,9 @@ p {
     overflow: hidden !important;
     text-overflow: ellipsis !important;
     font-size: 11px !important;
+    line-height: 1 !important;
+    display: flex !important;
+    align-items: center !important;
 }
 
 .sidebar-section-title {
@@ -696,6 +704,15 @@ p {
     padding: 4px 6px !important;
     margin: 1px 0 !important;
     font-size: 10px !important;
+    line-height: 1 !important;
+    gap: 6px !important;
+}
+
+.sidebar-child-item .sidebar-item-icon {
+    width: 12px !important;
+    height: 12px !important;
+    min-width: 12px !important;
+    min-height: 12px !important;
 }
 
 /* Dropdown menu */
