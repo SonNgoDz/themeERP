@@ -1086,3 +1086,180 @@ body {
     border: 1px solid var(--glass-border);
     box-shadow: var(--glass-shadow);
 }
+
+/* Fixed Sidebar Styles */
+body {
+    padding-left: var(--sidebar-width) !important;
+    overflow-x: hidden;
+}
+
+/* Override ERPNext default sidebar behavior */
+.page-container {
+    display: flex !important;
+}
+
+.layout-side-section {
+    position: fixed !important;
+    left: 0 !important;
+    top: 60px !important; /* Height of the navbar */
+    bottom: 0 !important;
+    width: var(--sidebar-width) !important;
+    background: white !important;
+    border-right: 1px solid var(--sidebar-border) !important;
+    overflow-y: auto !important;
+    z-index: 1000 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+}
+
+/* Hide sidebar toggle button */
+.layout-side-section .sidebar-toggle-btn {
+    display: none !important;
+}
+
+/* Main content adjustment */
+.layout-main-section-wrapper {
+    width: calc(100% - var(--sidebar-width)) !important;
+    margin-left: var(--sidebar-width) !important;
+}
+
+.layout-main-section {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Ensure sidebar is always visible */
+.hide-sidebar .layout-side-section {
+    display: block !important;
+    transform: none !important;
+}
+
+/* Custom Sidebar Styling */
+.layout-side-section {
+    background: var(--sidebar-bg) !important;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05) !important;
+}
+
+.desk-sidebar {
+    padding: 1rem 0 !important;
+}
+
+.standard-sidebar-item {
+    padding: 0.75rem 1.5rem !important;
+    margin: 0.2rem 0 !important;
+    color: var(--sidebar-text) !important;
+    display: flex !important;
+    align-items: center !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    border-radius: 0 !important;
+    position: relative !important;
+}
+
+.standard-sidebar-item:hover {
+    background: var(--sidebar-hover) !important;
+    color: var(--sidebar-active) !important;
+}
+
+.standard-sidebar-item.selected {
+    background: var(--sidebar-select-color) !important;
+    color: var(--sidebar-active) !important;
+    font-weight: 600 !important;
+}
+
+.standard-sidebar-item .sidebar-item-icon {
+    width: var(--sidebar-icon-size) !important;
+    height: var(--sidebar-icon-size) !important;
+    margin-right: 0.75rem !important;
+    opacity: 0.8 !important;
+}
+
+.standard-sidebar-item:hover .sidebar-item-icon {
+    opacity: 1 !important;
+}
+
+.standard-sidebar-item .sidebar-item-label {
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+}
+
+/* Sidebar Section Headers */
+.sidebar-label {
+    text-transform: uppercase !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    color: #6B7280 !important;
+    letter-spacing: 0.05em !important;
+    padding: 1rem 1.5rem 0.5rem !important;
+    margin: 0 !important;
+}
+
+/* Sidebar Scrollbar */
+.layout-side-section::-webkit-scrollbar {
+    width: 6px !important;
+}
+
+.layout-side-section::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+
+.layout-side-section::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1) !important;
+    border-radius: 3px !important;
+}
+
+.layout-side-section::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Ensure sidebar items are properly spaced */
+.desk-sidebar .standard-sidebar-item:not(:last-child) {
+    margin-bottom: 0.2rem !important;
+}
+
+/* Add hover indicator */
+.standard-sidebar-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background: var(--sidebar-active);
+    transform: scaleY(0);
+    transition: transform 0.2s ease;
+}
+
+.standard-sidebar-item:hover::before,
+.standard-sidebar-item.selected::before {
+    transform: scaleY(1);
+}
+
+/* Override any ERPNext dynamic hiding */
+@media (min-width: 768px) {
+    .layout-side-section {
+        display: block !important;
+    }
+    
+    .page-container {
+        padding-left: var(--sidebar-width) !important;
+    }
+}
+
+/* Navbar adjustments */
+.navbar {
+    left: var(--sidebar-width) !important;
+    width: calc(100% - var(--sidebar-width)) !important;
+}
+
+/* Workspace adjustments */
+.workspace-sidebar-skeleton {
+    display: none !important;
+}
+
+.workspace-sidebar {
+    position: fixed !important;
+    left: 0 !important;
+    width: var(--sidebar-width) !important;
+}
