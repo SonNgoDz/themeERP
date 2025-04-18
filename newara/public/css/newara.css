@@ -1263,3 +1263,182 @@ body {
     left: 0 !important;
     width: var(--sidebar-width) !important;
 }
+
+/* Force Sidebar Visibility */
+body[data-route*="Form/"],
+body[data-route*="List/"],
+body[data-route*="Tree/"],
+body[data-route*="modules/"],
+body[data-route*="dashboard"],
+[data-page-route*="Form/"],
+[data-page-route*="List/"],
+[data-page-route*="Tree/"] {
+    padding-left: var(--sidebar-width) !important;
+}
+
+/* Global Sidebar Rules */
+.layout-side-section,
+.list-sidebar,
+.page-sidebar,
+.form-sidebar,
+.workspace-sidebar-container {
+    display: block !important;
+    position: fixed !important;
+    left: 0 !important;
+    top: 60px !important;
+    bottom: 0 !important;
+    width: var(--sidebar-width) !important;
+    background: white !important;
+    border-right: 1px solid var(--sidebar-border) !important;
+    overflow-y: auto !important;
+    z-index: 1000 !important;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transition: none !important;
+}
+
+/* Hide Original Sidebars */
+.original-sidebar,
+.layout-side-section:not(:first-child),
+.sidebar-toggle,
+.sidebar-toggle-btn,
+.toggle-sidebar,
+.toggle-list-sidebar {
+    display: none !important;
+}
+
+/* Main Content Adjustments */
+.layout-main,
+.layout-main-section-wrapper,
+.page-content,
+.container,
+.layout-main-section {
+    margin-left: var(--sidebar-width) !important;
+    width: calc(100% - var(--sidebar-width)) !important;
+    max-width: calc(100% - var(--sidebar-width)) !important;
+    flex: 0 0 calc(100% - var(--sidebar-width)) !important;
+}
+
+/* Form View Adjustments */
+.form-layout {
+    margin-left: var(--sidebar-width) !important;
+    width: calc(100% - var(--sidebar-width)) !important;
+}
+
+/* List View Adjustments */
+.list-layout {
+    margin-left: var(--sidebar-width) !important;
+}
+
+/* Workspace Adjustments */
+.workspace-container {
+    padding-left: var(--sidebar-width) !important;
+}
+
+.workspace-sidebar {
+    left: 0 !important;
+    display: block !important;
+}
+
+/* Navbar Adjustments */
+.navbar-expand,
+.navbar-desktop,
+.navbar {
+    left: var(--sidebar-width) !important;
+    width: calc(100% - var(--sidebar-width)) !important;
+}
+
+/* Override any dynamic classes that might hide sidebar */
+.hide-sidebar .layout-side-section,
+.hide-sidebar .page-sidebar,
+.hide-sidebar .list-sidebar,
+[data-sidebar="0"] .layout-side-section,
+body[data-sidebar="0"] .layout-side-section {
+    display: block !important;
+    transform: none !important;
+    left: 0 !important;
+}
+
+/* Ensure content doesn't overlap */
+.layout-main-section-wrapper {
+    margin-left: var(--sidebar-width) !important;
+}
+
+/* Force sidebar in specific routes */
+body[data-route*="Lead"],
+body[data-route*="Opportunity"],
+body[data-route*="Customer"],
+body[data-route*="Sales"],
+body[data-route*="CRM"] {
+    .layout-side-section {
+        display: block !important;
+        left: 0 !important;
+        transform: none !important;
+    }
+}
+
+/* Additional specificity for problematic pages */
+[data-page-route*="Lead"] .layout-side-section,
+[data-page-route*="Opportunity"] .layout-side-section,
+[data-page-route*="Customer"] .layout-side-section,
+[data-page-route*="Sales"] .layout-side-section,
+[data-page-route*="CRM"] .layout-side-section {
+    display: block !important;
+    left: 0 !important;
+    transform: none !important;
+}
+
+/* Override any ERPNext JS-based hiding */
+.layout-side-section {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+/* Prevent any animation/transition that might cause flickering */
+.layout-side-section,
+.page-sidebar,
+.list-sidebar {
+    transition: none !important;
+    animation: none !important;
+}
+
+/* Ensure proper stacking context */
+.page-container {
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* Override workspace specific hiding */
+.workspace-sidebar-container {
+    display: block !important;
+    left: 0 !important;
+}
+
+/* Make sure no margin/padding interferes */
+.layout-main-section-wrapper {
+    padding-left: 0 !important;
+    margin-left: var(--sidebar-width) !important;
+}
+
+/* Target specific problem areas */
+.form-page .layout-side-section,
+.list-page .layout-side-section {
+    display: block !important;
+    left: 0 !important;
+}
+
+/* Ensure proper z-index stacking */
+.modal-backdrop {
+    z-index: 1050 !important;
+}
+
+.modal {
+    z-index: 1060 !important;
+}
+
+.layout-side-section {
+    z-index: 1040 !important;
+}
