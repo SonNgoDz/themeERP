@@ -7,7 +7,7 @@
 	--text-btn-color: white;
 	--table-border-color: #714b6740;
 	--btn-default-hover-bg: white;
-	--sidebar-select-color: #017E8420;
+	--sidebar-select-color: rgba(1, 126, 132, 0.08);
 	--checkbox-gradient: linear-gradient(180deg, var(--btn-primary) -124.51%, var(--btn-primary) 100%);
 	--text-base: 14px;
 	--box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -25,6 +25,13 @@
 	--glass-bg: rgba(255, 255, 255, 0.8);
 	--glass-border: rgba(255, 255, 255, 0.2);
 	--glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+	--sidebar-width: 250px;
+	--sidebar-bg: white;
+	--sidebar-text: #4C5A67;
+	--sidebar-hover: #f8f9fa;
+	--sidebar-active: #017E84;
+	--sidebar-border: #E5E7EB;
+	--sidebar-icon-size: 18px;
 }
 
 /* login page */
@@ -705,11 +712,200 @@ body {
 
 /* Modern Sidebar */
 .sidebar {
-    background: var(--glass-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-right: 1px solid var(--glass-border);
-    box-shadow: var(--glass-shadow);
+    width: var(--sidebar-width);
+    background: var(--sidebar-bg);
+    border-right: 1px solid var(--sidebar-border);
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+}
+
+/* Sidebar Brand */
+.sidebar-brand {
+    padding: 0 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.sidebar-brand img {
+    height: 32px;
+    width: auto;
+}
+
+/* Sidebar Items */
+.sidebar-items {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.sidebar-item {
+    padding: 0.75rem 1.5rem;
+    margin: 0.2rem 0;
+    color: var(--sidebar-text);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.sidebar-item:hover {
+    background: var(--sidebar-hover);
+    color: var(--sidebar-active);
+}
+
+.sidebar-item.active {
+    background: var(--sidebar-select-color);
+    color: var(--sidebar-active);
+    font-weight: 600;
+}
+
+/* Sidebar Icons */
+.sidebar-item-icon {
+    width: var(--sidebar-icon-size);
+    height: var(--sidebar-icon-size);
+    margin-right: 0.75rem;
+    opacity: 0.8;
+}
+
+.sidebar-item:hover .sidebar-item-icon {
+    opacity: 1;
+}
+
+/* Sidebar Item Label */
+.sidebar-item-label {
+    flex: 1;
+}
+
+/* Sidebar Sections */
+.sidebar-section {
+    margin: 1.5rem 0;
+    padding: 0 1.5rem;
+}
+
+.sidebar-section-title {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #6B7280;
+    letter-spacing: 0.05em;
+    padding: 0.5rem 0;
+}
+
+/* Sidebar Buttons */
+.sidebar .btn {
+    width: calc(100% - 3rem);
+    margin: 0.5rem 1.5rem;
+    padding: 0.75rem 1rem;
+    text-align: center;
+    background: var(--secondary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.sidebar .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar Collapse State */
+.sidebar-collapsed {
+    width: 72px;
+}
+
+.sidebar-collapsed .sidebar-item-label,
+.sidebar-collapsed .sidebar-section-title {
+    display: none;
+}
+
+.sidebar-collapsed .sidebar-item {
+    padding: 0.75rem;
+    justify-content: center;
+}
+
+.sidebar-collapsed .sidebar-item-icon {
+    margin-right: 0;
+}
+
+.sidebar-collapsed .btn {
+    width: 40px;
+    padding: 0.75rem;
+    margin: 0.5rem 16px;
+}
+
+/* Sidebar Dividers */
+.sidebar-divider {
+    height: 1px;
+    background: var(--sidebar-border);
+    margin: 1rem 1.5rem;
+    opacity: 0.6;
+}
+
+/* Sidebar Badges */
+.sidebar-badge {
+    background: var(--sidebar-active);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* Sidebar Search */
+.sidebar-search {
+    padding: 0 1.5rem;
+    margin: 1rem 0;
+}
+
+.sidebar-search input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--sidebar-border);
+    border-radius: 6px;
+    background: var(--sidebar-hover);
+    color: var(--sidebar-text);
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+}
+
+.sidebar-search input:focus {
+    outline: none;
+    border-color: var(--sidebar-active);
+    background: white;
+}
+
+/* Sidebar Dropdown */
+.sidebar-dropdown {
+    margin-left: 2.25rem;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease;
+}
+
+.sidebar-item.expanded .sidebar-dropdown {
+    height: auto;
+}
+
+.sidebar-dropdown-item {
+    padding: 0.5rem 0;
+    color: var(--sidebar-text);
+    font-size: 0.8125rem;
+    opacity: 0.8;
+    transition: all 0.2s ease;
+}
+
+.sidebar-dropdown-item:hover {
+    opacity: 1;
+    color: var(--sidebar-active);
 }
 
 /* Modern Alerts and Messages */
