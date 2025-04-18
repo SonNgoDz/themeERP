@@ -10,6 +10,18 @@
 	--sidebar-select-color: #017E8420;
 	--checkbox-gradient: linear-gradient(180deg, var(--btn-primary) -124.51%, var(--btn-primary) 100%);
 	--text-base: 14px;
+	--box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+	--transition: all 0.3s ease;
+	--primary-gradient: linear-gradient(135deg, #714B67 0%, #017E84 100%);
+	--card-shadow: 0 4px 6px rgba(0,0,0,0.1);
+	--hover-shadow: 0 8px 16px rgba(0,0,0,0.15);
+	--border-radius: 8px;
+	--text-color: #2c3e50;
+	--text-muted: #6c757d;
+	--success-color: #28a745;
+	--warning-color: #ffc107;
+	--danger-color: #dc3545;
+	--info-color: #17a2b8;
 }
 
 /* login page */
@@ -59,15 +71,18 @@
 /* NAVBAR DESIGNE */
 
 .navbar {
-    background-color: #484848 !important;
-    border-bottom: 1px solid var(--table-border-color) !important;
+    background: var(--primary-gradient) !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 0.8rem 1.5rem;
 }
 
 .navbar .navbar-expand span, 
 .navbar .navbar-expand li a,
 #navbar-breadcrumbs a,
 .navbar .nav-item button.nav-link{ 
-    color: var(--navbar-bg) !important;
+    color: white !important;
+    font-weight: 500;
+    transition: var(--transition);
 }
 
 #navbar-breadcrumbs li.disabled a {
@@ -405,4 +420,368 @@ input[type="checkbox"]:checked {
 .client-wrapper li a.active {
   background-color:  white !important;
   color: black;
+}
+
+/* Enhanced UI Elements */
+.page-card {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+    border: none;
+    margin-bottom: 1.5rem;
+}
+
+.page-card:hover {
+    box-shadow: var(--hover-shadow);
+    transform: translateY(-2px);
+}
+
+.page-card-head {
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.page-card-head h4 {
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.page-card-body {
+    padding: 1.5rem;
+}
+
+.form-control {
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(0,0,0,0.1);
+    padding: 0.8rem 1rem;
+    transition: var(--transition);
+    font-size: 0.95rem;
+}
+
+.form-control:focus {
+    border-color: var(--btn-primary);
+    box-shadow: 0 0 0 3px rgba(113, 75, 103, 0.1);
+}
+
+.btn {
+    border-radius: var(--border-radius);
+    padding: 0.8rem 1.5rem;
+    font-weight: 500;
+    transition: var(--transition);
+    text-transform: none;
+    letter-spacing: 0.3px;
+}
+
+.btn-primary {
+    background: var(--primary-gradient);
+    border: none;
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--hover-shadow);
+}
+
+.btn-secondary {
+    background: var(--secondary);
+    border: none;
+    color: white;
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.sidebar-item {
+    padding: 0.8rem 1rem;
+    margin: 0.2rem 0.5rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    color: var(--text-color);
+}
+
+.sidebar-item:hover {
+    background: var(--sidebar-select-color);
+    transform: translateX(4px);
+}
+
+.sidebar-item.active {
+    background: var(--primary-gradient);
+    color: white;
+}
+
+/* Enhanced Table Design */
+.datatable {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    background: white;
+}
+
+.datatable .dt-cell {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.datatable .dt-row:hover {
+    background: rgba(113, 75, 103, 0.05);
+}
+
+/* Enhanced Form Elements */
+.checkbox {
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.checkbox:checked {
+    background-color: var(--btn-primary);
+    border-color: var(--btn-primary);
+}
+
+/* Enhanced Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+p {
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+/* Enhanced Card Design */
+.card {
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    background: white;
+    padding: 16px;
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Enhanced List Design */
+.list-row {
+    padding: 12px 16px;
+    border-radius: 6px;
+    transition: var(--transition);
+}
+
+.list-row:hover {
+    background-color: var(--sidebar-select-color);
+}
+
+/* Enhanced Modal Design */
+.modal-content {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--table-border-color);
+    padding: 16px 24px;
+}
+
+.modal-body {
+    padding: 24px;
+}
+
+/* Enhanced Button Groups */
+.btn-group {
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+
+.btn-group .btn {
+    border-radius: 0;
+    margin: 0;
+}
+
+/* Enhanced Dropdowns */
+.dropdown-menu {
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: none;
+    padding: 8px;
+}
+
+.dropdown-item {
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.dropdown-item:hover {
+    background-color: var(--sidebar-select-color);
+}
+
+/* Modern Layout */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: #f8f9fa;
+}
+
+/* Modern Sidebar */
+.sidebar {
+    background: white;
+    box-shadow: var(--box-shadow);
+    border-right: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Modern Alerts and Messages */
+.alert {
+    border-radius: var(--border-radius);
+    border: none;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.alert-success {
+    background: rgba(40, 167, 69, 0.1);
+    color: var(--success-color);
+}
+
+.alert-warning {
+    background: rgba(255, 193, 7, 0.1);
+    color: var(--warning-color);
+}
+
+.alert-danger {
+    background: rgba(220, 53, 69, 0.1);
+    color: var(--danger-color);
+}
+
+/* Modern Modals */
+.modal-content {
+    border-radius: var(--border-radius);
+    border: none;
+    box-shadow: var(--hover-shadow);
+}
+
+.modal-header {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding: 1.2rem 1.5rem;
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+/* Modern Dropdowns */
+.dropdown-menu {
+    border-radius: var(--border-radius);
+    border: none;
+    box-shadow: var(--hover-shadow);
+    padding: 0.5rem;
+}
+
+.dropdown-item {
+    padding: 0.8rem 1rem;
+    border-radius: calc(var(--border-radius) - 2px);
+    transition: var(--transition);
+}
+
+.dropdown-item:hover {
+    background: rgba(113, 75, 103, 0.1);
+}
+
+/* Modern Progress Bars */
+.progress {
+    height: 0.5rem;
+    border-radius: 1rem;
+    background: rgba(0,0,0,0.1);
+}
+
+.progress-bar {
+    background: var(--primary-gradient);
+}
+
+/* Modern Badges */
+.badge {
+    padding: 0.5rem 0.8rem;
+    border-radius: 1rem;
+    font-weight: 500;
+}
+
+/* Modern Tooltips */
+.tooltip {
+    font-size: 0.85rem;
+}
+
+.tooltip-inner {
+    border-radius: var(--border-radius);
+    padding: 0.5rem 1rem;
+}
+
+/* Modern Pagination */
+.pagination {
+    margin: 2rem 0;
+}
+
+.page-link {
+    border-radius: var(--border-radius);
+    margin: 0 0.2rem;
+    border: none;
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+.page-link:hover {
+    background: var(--sidebar-select-color);
+    transform: translateY(-1px);
+}
+
+.page-item.active .page-link {
+    background: var(--primary-gradient);
+    border: none;
+}
+
+/* Modern Loading States */
+.loading {
+    position: relative;
+    overflow: hidden;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Modern Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.1);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(113, 75, 103, 0.5);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(113, 75, 103, 0.7);
 }
