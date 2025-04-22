@@ -79,4 +79,24 @@ frappe.ready(() => {
     window.addEventListener('beforeunload', () => {
         observer.disconnect();
     });
+
+    // Add toggle button to sidebar
+    const toggleBtn = document.createElement('button');
+    toggleBtn.className = 'sidebar-toggle-btn';
+    toggleBtn.innerHTML = `
+        <svg class="es-icon es-line" aria-hidden="true">
+            <use href="#es-line-${document.body.classList.contains('sidebar-collapsed') ? 'right' : 'left'}"></use>
+        </svg>
+    `;
+
+    // Add click handler
+    toggleBtn.addEventListener('click', () => {
+        document.body.classList.toggle('sidebar-collapsed');
+        toggleBtn.querySelector('use').setAttribute('href', 
+            `#es-line-${document.body.classList.contains('sidebar-collapsed') ? 'right' : 'left'}`
+        );
+    });
+
+    // Add button to sidebar
+    document.querySelector('.layout-side-section').appendChild(toggleBtn);
 }); 
