@@ -15,7 +15,7 @@ frappe.ready(() => {
                 <div class="flex items-center truncate">
                     <span class="sidebar-collapse-btn-icon">
                         <svg class="es-icon icon-md" aria-hidden="true">
-                            <use href="#es-line-sidebar-collapse"></use>
+                            <use href="#es-line-${document.body.classList.contains('sidebar-collapsed') ? 'right' : 'left'}"></use>
                         </svg>
                     </span>
                     <span class="sidebar-collapse-btn-text">Collapse</span>
@@ -36,14 +36,14 @@ frappe.ready(() => {
                 
                 // Update button text and icon
                 const textSpan = toggleButton.querySelector('.sidebar-collapse-btn-text');
-                const svg = toggleButton.querySelector('svg');
+                const svg = toggleButton.querySelector('svg use');
                 
                 if (body.classList.contains('sidebar-collapsed')) {
                     textSpan.textContent = 'Expand';
-                    svg.style.transform = 'rotate(180deg)';
+                    svg.setAttribute('href', '#es-line-right');
                 } else {
                     textSpan.textContent = 'Collapse';
-                    svg.style.transform = 'rotate(0deg)';
+                    svg.setAttribute('href', '#es-line-left');
                 }
 
                 // Call original handler if exists
