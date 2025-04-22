@@ -93,6 +93,7 @@
     height: 1rem;
     margin-right: 0.5rem;
     color: var(--text-gray-700);
+    flex-shrink: 0;
 }
 
 .sidebar-menu-item .label {
@@ -129,6 +130,11 @@ body.sidebar-collapsed .sidebar-header {
 body.sidebar-collapsed .user-details,
 body.sidebar-collapsed .user-role {
     display: none;
+}
+
+body.sidebar-collapsed .user-avatar {
+    width: 1.5rem;
+    height: 1.5rem;
 }
 
 /* Getting Started Section */
@@ -195,6 +201,7 @@ body.sidebar-collapsed .user-role {
     height: 1rem;
     margin-right: 0.5rem;
     color: var(--text-gray-700);
+    flex-shrink: 0;
 }
 
 .collapse-btn .label {
@@ -205,69 +212,17 @@ body.sidebar-collapsed .user-role {
     text-overflow: ellipsis;
 }
 
-/* Sidebar Collapse Button Styles */
-.sidebar-collapse-btn {
-    display: flex;
-    height: 28px;
-    cursor: pointer;
-    align-items: center;
-    border-radius: 4px;
-    color: var(--text-gray-7);
-    transition: all 300ms ease-in-out;
-    outline: none;
-    background: none;
-    border: none;
-    padding: 0;
+body.sidebar-collapsed .collapse-btn {
+    padding: 0.5rem;
+    justify-content: center;
+}
+
+body.sidebar-collapsed .collapse-btn .label {
+    display: none;
+}
+
+body.sidebar-collapsed .collapse-btn .icon {
     margin: 0;
-    width: 100%;
-}
-
-.sidebar-collapse-btn:focus {
-    transition: none;
-    border-radius: 4px;
-    box-shadow: 0 0 0 2px var(--outline-gray-3);
-}
-
-.sidebar-collapse-btn:hover {
-    background-color: var(--surface-gray-2);
-}
-
-.sidebar-collapse-btn-content {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-    transition: all 300ms ease-in-out;
-    padding: 4px 8px;
-}
-
-.sidebar-collapse-btn-icon {
-    display: grid;
-    height: 16px;
-    width: 16px;
-    flex-shrink: 0;
-    place-items: center;
-}
-
-.sidebar-collapse-btn-text {
-    flex: 1 1 0%;
-    flex-shrink: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-size: 14px;
-    transition: all 300ms ease-in-out;
-    margin-left: 8px;
-    width: auto;
-    opacity: 1;
-}
-
-/* SVG Icon Styles */
-.sidebar-collapse-btn-icon .es-icon {
-    height: 16px;
-    width: 16px;
-    color: currentColor;
-    transition: all 300ms ease-in-out;
 }
 
 /* Sidebar Toggle Button */
@@ -303,5 +258,5 @@ body.sidebar-collapsed .sidebar-toggle-btn {
 }
 
 body:not(.sidebar-collapsed) .sidebar-toggle-btn {
-    left: 220px;
+    left: 0px;
 }
