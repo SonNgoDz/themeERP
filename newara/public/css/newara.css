@@ -4,3 +4,11 @@
         max-width: 100%;
     }
 }
+
+@media (min-width: 992px) {
+    [data-page-route=Workspaces] .layout-main .layout-side-section {
+        padding-right: 15px;
+        flex: 0 0 12.5%;
+        max-width: 12.5%;
+    }
+}
