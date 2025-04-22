@@ -34,6 +34,114 @@
     z-index: 1000;
 }
 
+/* List Sidebar */
+.list-sidebar {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+    overflow: visible !important;
+}
+
+/* Sidebar Menu */
+.sidebar-menu {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Standard Sidebar Section */
+.standard-sidebar-section {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Sidebar Item Container */
+.sidebar-item-container {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Desk Sidebar Item */
+.desk-sidebar-item {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Sidebar Child Item */
+.sidebar-child-item {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Hidden Classes Override */
+.hidden,
+.hidden-xs,
+.hidden-sm {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Nested Container */
+.nested-container {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Dropdown List */
+.dropdown-list {
+    display: none !important;
+}
+
+/* Dropdown List when active */
+.dropdown-list.active {
+    display: block !important;
+}
+
+/* Sidebar Toggle Button */
+.sidebar-toggle-btn {
+    display: none !important;
+}
+
+/* Remove all collapsed state styles */
+body.sidebar-collapsed .layout-side-section {
+    width: 220px !important;
+    min-width: 220px !important;
+}
+
+body.sidebar-collapsed .sidebar-menu-item {
+    padding: 0.5rem 1rem;
+    justify-content: flex-start;
+}
+
+body.sidebar-collapsed .sidebar-menu-item .label {
+    display: block;
+}
+
+body.sidebar-collapsed .sidebar-menu-item .icon {
+    margin-right: 0.5rem;
+}
+
+body.sidebar-collapsed .sidebar-header {
+    padding: 1rem;
+}
+
+body.sidebar-collapsed .user-details,
+body.sidebar-collapsed .user-role {
+    display: block;
+}
+
+body.sidebar-collapsed .user-avatar {
+    width: 2rem;
+    height: 2rem;
+}
+
 /* Sidebar Header */
 .sidebar-header {
     padding: 1rem;
@@ -147,42 +255,4 @@
 
 .start-now-btn:hover {
     background-color: var(--blue-200);
-}
-
-/* Sidebar Toggle Button */
-.sidebar-toggle-btn {
-    display: none !important;
-}
-
-/* Remove all collapsed state styles */
-body.sidebar-collapsed .layout-side-section {
-    width: 220px !important;
-    min-width: 220px !important;
-}
-
-body.sidebar-collapsed .sidebar-menu-item {
-    padding: 0.5rem 1rem;
-    justify-content: flex-start;
-}
-
-body.sidebar-collapsed .sidebar-menu-item .label {
-    display: block;
-}
-
-body.sidebar-collapsed .sidebar-menu-item .icon {
-    margin-right: 0.5rem;
-}
-
-body.sidebar-collapsed .sidebar-header {
-    padding: 1rem;
-}
-
-body.sidebar-collapsed .user-details,
-body.sidebar-collapsed .user-role {
-    display: block;
-}
-
-body.sidebar-collapsed .user-avatar {
-    width: 2rem;
-    height: 2rem;
 }
