@@ -1,0 +1,192 @@
+<!-- Sidebar Navigation -->
+<div class="col-lg-2 layout-side-section">
+    <button class="sr-only sr-only-focusable btn btn-primary-light my-2" tabindex="0" role="link">Navigate to main content</button>
+    <div class="list-sidebar overlay-sidebar hidden-xs hidden-sm">
+        <div class="desk-sidebar list-unstyled sidebar-menu">
+            <!-- Personal Section -->
+            <div class="standard-sidebar-section nested-container hidden" data-title="Personal">
+                <button class="btn-reset standard-sidebar-label" aria-label="Toggle Section: Personal" aria-expanded="true">
+                    <span>
+                        <svg class="es-icon es-line icon-xs">
+                            <use href="#es-line-down"></use>
+                        </svg>
+                    </span>
+                    <span class="section-title">Personal</span>
+                </button>
+            </div>
+
+            <!-- Public Section -->
+            <div class="standard-sidebar-section nested-container" data-title="Public">
+                <button class="btn-reset standard-sidebar-label" aria-label="Toggle Section: Public" aria-expanded="true">
+                    <span>
+                        <svg class="es-icon es-line icon-xs">
+                            <use href="#es-line-down"></use>
+                        </svg>
+                    </span>
+                    <span class="section-title">Public</span>
+                </button>
+
+                <!-- Filter Section -->
+                <div class="sidebar-section filter-section">
+                    <div class="sidebar-label">Filter By</div>
+                    <div class="list-group-by">
+                        <div class="list-group-by-fields">
+                            <!-- Assigned To Filter -->
+                            <div class="desk-sidebar-item standard-sidebar-item">
+                                <a href="#" class="item-anchor" onclick="return false;">
+                                    <span class="sidebar-item-icon">
+                                        <svg class="icon icon-md">
+                                            <use href="#icon-assign"></use>
+                                        </svg>
+                                    </span>
+                                    <span class="sidebar-item-label">Assigned To</span>
+                                    <div class="sidebar-item-control">
+                                        <div class="btn btn-xs setting-btn dropdown-btn">
+                                            <svg class="es-icon es-line icon-xs">
+                                                <use href="#es-line-dot-horizontal"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <!-- Created By Filter -->
+                            <div class="desk-sidebar-item standard-sidebar-item">
+                                <a href="#" class="item-anchor" onclick="return false;">
+                                    <span class="sidebar-item-icon">
+                                        <svg class="icon icon-md">
+                                            <use href="#icon-user"></use>
+                                        </svg>
+                                    </span>
+                                    <span class="sidebar-item-label">Created By</span>
+                                    <div class="sidebar-item-control">
+                                        <div class="btn btn-xs setting-btn dropdown-btn">
+                                            <svg class="es-icon es-line icon-xs">
+                                                <use href="#es-line-dot-horizontal"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Edit Filters Action -->
+                        <div class="desk-sidebar-item">
+                            <a href="#" class="item-anchor" onclick="return false;">
+                                <span class="sidebar-item-icon">
+                                    <svg class="icon icon-md">
+                                        <use href="#icon-edit"></use>
+                                    </svg>
+                                </span>
+                                <span class="sidebar-item-label">Edit Filters</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tags Section -->
+                <div class="sidebar-section tags-section">
+                    <div class="sidebar-label">Tags</div>
+                    <div class="desk-sidebar-item standard-sidebar-item">
+                        <a href="#" class="item-anchor" onclick="return false;">
+                            <span class="sidebar-item-icon">
+                                <svg class="icon icon-md">
+                                    <use href="#icon-tag"></use>
+                                </svg>
+                            </span>
+                            <span class="sidebar-item-label">Show Tags</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Save Filter Section -->
+                <div class="sidebar-section save-filter-section">
+                    <div class="sidebar-label">Save Filter</div>
+                    <div class="filter-input">
+                        <input type="text" class="form-control input-sm" placeholder="Filter Name">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+frappe.ready(function() {
+    // Toggle sections
+    $('.standard-sidebar-label').on('click', function() {
+        var $section = $(this).closest('.standard-sidebar-section');
+        var $content = $section.find('.sidebar-section');
+        $content.slideToggle();
+        
+        // Toggle aria-expanded
+        var isExpanded = $(this).attr('aria-expanded') === 'true';
+        $(this).attr('aria-expanded', !isExpanded);
+        
+        // Rotate arrow icon
+        var $icon = $(this).find('.es-icon');
+        $icon.css('transform', isExpanded ? 'rotate(0deg)' : 'rotate(180deg)');
+    });
+
+    // Initialize dropdowns
+    $('.dropdown-btn').on('click', function(e) {
+        e.stopPropagation();
+        var $dropdown = $(this).next('.dropdown-list');
+        $('.dropdown-list').not($dropdown).addClass('hidden');
+        $dropdown.toggleClass('hidden');
+    });
+
+    // Close dropdowns when clicking outside
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('.dropdown-btn').length) {
+            $('.dropdown-list').addClass('hidden');
+        }
+    });
+
+    // Make items draggable
+    $('.desk-sidebar-item').attr('draggable', true);
+    
+    // Drag and drop functionality
+    var dragSrcEl = null;
+
+    function handleDragStart(e) {
+        dragSrcEl = this;
+        e.dataTransfer.effectAllowed = 'move';
+        e.dataTransfer.setData('text/html', this.outerHTML);
+        this.classList.add('dragging');
+    }
+
+    function handleDragOver(e) {
+        if (e.preventDefault) {
+            e.preventDefault();
+        }
+        e.dataTransfer.dropEffect = 'move';
+        return false;
+    }
+
+    function handleDrop(e) {
+        if (e.stopPropagation) {
+            e.stopPropagation();
+        }
+
+        if (dragSrcEl != this) {
+            dragSrcEl.outerHTML = this.outerHTML;
+            this.outerHTML = e.dataTransfer.getData('text/html');
+        }
+
+        return false;
+    }
+
+    function handleDragEnd(e) {
+        this.classList.remove('dragging');
+    }
+
+    let items = document.querySelectorAll('.desk-sidebar-item');
+    items.forEach(function(item) {
+        item.addEventListener('dragstart', handleDragStart);
+        item.addEventListener('dragover', handleDragOver);
+        item.addEventListener('drop', handleDrop);
+        item.addEventListener('dragend', handleDragEnd);
+    });
+});
+</script> 
