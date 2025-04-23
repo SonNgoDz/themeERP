@@ -247,7 +247,7 @@ a.onboard-spotlight .link-content:hover {
 .frappe-control:not([data-fieldtype="MultiSelectPills"]):not([data-fieldtype="Table MultiSelect"]).has-error input:focus
 {
 	box-shadow: 0 0 0 2px #eb909180 !important;
-}
+} 
 
 .frappe-control:not([data-fieldtype="MultiSelectPills"]):not([data-fieldtype="Table MultiSelect"]).has-error input{
 	box-shadow: none !important;
